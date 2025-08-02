@@ -56,7 +56,7 @@ namespace mlstd {
 				return *this;
 
 			if(e.HasValue())
-				this->t = e.Value();
+				this->value = e.Value();
 
 			if(e.HasError())
 				this->error = e.Error();
