@@ -35,7 +35,12 @@ namespace elfldr::util {
 		/**
 		 * SSX 3.
 		 */
-		SSX3
+		SSX3,
+
+		/**
+		 * Shaun Palmer's Pro Snowboarder.
+		 */
+		SPPS
 	};
 
 	enum class GameRegion : uint8_t {
@@ -85,7 +90,26 @@ namespace elfldr::util {
 		 * SSX3 Korean demo.
 		 * Built June 2003.
 		 */
-		SSX3_KR_DEMO
+		SSX3_KR_DEMO,
+
+		/**
+		 * Shaun Palmer's Pro Snowboarder US and PAL release. (1.0)
+		 */
+		SPPS_10,
+		/**
+		 * Shaun Palmer's Pro Snowboarder French PAL and NTSC-J release. (1.01)
+		 */
+		SPPS_101,
+		/**
+		 * Shaun Palmer's Pro Snowboarder German PAL release. (1.02)
+		 */
+		SPPS_102,
+		/**
+		 * Shaun Palmer's Pro Snowboarder US prototype release.
+		 * Built Aug 24, 2001.
+		 */
+		SPPS_US_Aug_Proto,
+
 	};
 
 	// THIS TYPE IS PASSED IN THE ERL ABI,

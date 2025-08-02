@@ -66,6 +66,41 @@ namespace elfldr::util {
 			MLSTD_UNREACHABLE();
 		}
 
+		const char* SPPSBinary(GameRegion region, GameVersion version) {
+			switch(version) {
+				case GameVersion::SPPS_10:
+					switch(region) {
+						case GameRegion::NTSC:
+							return "SLUS_201.99";
+						case GameRegion::PAL:
+							return "SLES_504.00";
+						default:
+							MLSTD_ASSERT(false && "Invalid region!");
+					}
+					break;
+				case GameVersion::SPPS_101:
+					switch(region) {
+						case GameRegion::PAL:
+							return "SLES_504.01";
+						case GameRegion::NTSCJ:
+							return "SLPM_651.98";
+						default:
+							MLSTD_ASSERT(false && "Invalid region!");
+					}
+					break;
+				case GameVersion::SPPS_102:
+					switch(region) {
+						case GameRegion::PAL:
+							return "SLES_504.02";
+						default:
+							MLSTD_ASSERT(false && "Invalid region!");
+					}
+					break;
+			}
+
+			MLSTD_UNREACHABLE();
+		}
+
 		mlstd::StringView GameToString(Game g) {
 			MLSTD_ASSERT(g != Game::Invalid && "this codepath shouldn't be called with an invalid game");
 
@@ -76,6 +111,8 @@ namespace elfldr::util {
 					return "ssxdvd";
 				case Game::SSX3:
 					return "ssx3";
+				case Game::SPPS:
+					return "spps";
 
 				default:
 					MLSTD_ASSERT(false && "Invalid game passed to GameToString()");
@@ -102,7 +139,14 @@ namespace elfldr::util {
 				case GameVersion::SSXOG_10:
 				case GameVersion::SSXDVD_10:
 				case GameVersion::SSX3_10:
+				case GameVersion::SPPS_10:
 					return "1.0";
+
+				case GameVersion::SPPS_101:
+					return "1.01";
+
+				case GameVersion::SPPS_102:
+					return "1.02";
 
 				case GameVersion::SSXDVD_JAMPACK_DEMO:
 					return "jamd";
@@ -127,6 +171,8 @@ namespace elfldr::util {
 				return SSXDVDBinary(region, version);
 			case Game::SSX3:
 				return SSX3Binary(region, version);
+			case Game::SPPS:
+				return SPPSBinary(region, version);
 			default:
 				MLSTD_ASSERT(false && "Invalid game passed to GameBinaryFor...");
 				return "slps_000.00";

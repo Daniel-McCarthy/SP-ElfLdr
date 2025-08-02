@@ -56,6 +56,16 @@ namespace elfldr::util {
 				return false;
 			if(TryGame(Game::SSX3, GameRegion::NTSC, GameVersion::SSX3_10))
 				return false;
+			if(TryGame(Game::SPPS, GameRegion::NTSC, GameVersion::SPPS_10))
+				return false;
+			if(TryGame(Game::SPPS, GameRegion::PAL, GameVersion::SPPS_10))
+				return false;
+			if(TryGame(Game::SPPS, GameRegion::PAL, GameVersion::SPPS_101))
+				return false;
+			if(TryGame(Game::SPPS, GameRegion::NTSCJ, GameVersion::SPPS_101))
+				return false;
+			if(TryGame(Game::SPPS, GameRegion::PAL, GameVersion::SPPS_102))
+				return false;
 			//}
 
 			return true;
