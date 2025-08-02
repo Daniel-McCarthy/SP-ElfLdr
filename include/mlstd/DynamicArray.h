@@ -36,19 +36,19 @@ namespace mlstd {
 		}
 
 		inline DynamicArray(const DynamicArray& other) {
-			Resize(other.length);
-			TypedTransfer<Elem>::Copy(rawArray, other.rawArray, other.length);
+			Resize(other.capacity);
+			TypedTransfer<Elem>::Copy(rawArray, other.rawArray, other.capacity);
 		}
 
 		inline DynamicArray(DynamicArray&& move) noexcept {
 			rawArray = move.rawArray;
-			capacity = move.length;
+			capacity = move.capacity;
 			size = move.size;
 
 			// invalidate what we're moving from,
 			// since this instance now owns the memory.
 			move.rawArray = nullptr;
-			move.length = 0;
+			move.capacity = 0;
 			move.size = 0;
 		}
 
